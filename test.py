@@ -130,7 +130,7 @@ if __name__ == "__main__":
             model = timm.create_model('swin_base_patch4_window7_224.ms_in22k_ft_in1k', in_chans = 3, pretrained=True)
             model.head.fc = torch.nn.Linear(1024, config['model']['num-classes'])
         if os.path.exists(opt.model1_weights):
-            model.load_state_dict(torch.load(opt.model1_weights))
+            model.load_state_dict(torch.load(opt.model1_weights, map_location='cuda:0'))
         else:
             raise Exception("No checkpoint loaded for the model.")    
 
