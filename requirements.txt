@@ -1,0 +1,5 @@
+albumentations==0.5.2
+datasets
+torchsr
+progress
+timm==0.9.1
